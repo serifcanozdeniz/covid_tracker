@@ -7,3 +7,6 @@
 body {
   font-family: "Merienda", cursive;
 }
+.wrapper svg {
+  width: 100%;
+}

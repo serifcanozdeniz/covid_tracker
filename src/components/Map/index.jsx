@@ -12,7 +12,10 @@ const Map = ({ setTooltipContent }) => {
   const geoUrl = "https://ismailarilik.com/react-covid-maps/geo.json";
 
   return (
-    <ComposableMap projectionConfig={{ rotate: [-10, 0, 0], scale: 147 }}>
+    <ComposableMap
+      height={900}
+      projectionConfig={{ rotate: [-10, 0, 0], scale: 147 }}
+    >
       <ZoomableGroup>
         <Sphere stroke="gray" strokeWidth={0.5} />
         <Graticule stroke="gray" strokeWidth={0.5} />
