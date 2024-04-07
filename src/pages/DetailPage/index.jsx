@@ -11,6 +11,7 @@ import ErrorDisplay from "../../components/ErrorDisplay";
 import HeaderLoader from "../../components/Loader/HeaderLoader";
 
 const DetailPage = () => {
+  // store a abone ol
   const { data, error, isLoading } = useSelector((store) => store);
 
   // url den parametreyi al
@@ -27,7 +28,7 @@ const DetailPage = () => {
   // bileşen ekrana basılınca aksiyonu çağır
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [country]);
 
   // covid bilgilerini bir diziye çevir
   const covidData = Object.entries(data?.covid || {});
@@ -50,11 +51,14 @@ const DetailPage = () => {
               !error && (
                 <>
                   <img
-                    className="w-12 h-12"
+                    className="w-24 h-12 rounded-md"
                     src={data.country.flags.svg}
                     alt={data.country.name.common}
                   />
-                  <h1 className="text-3xl font-bold text-gray-900">
+                  <h1
+                    data-testid="title"
+                    className="text-3xl font-bold text-gray-900"
+                  >
                     {data.country.name.common}
                   </h1>
                 </>

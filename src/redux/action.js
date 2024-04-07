@@ -1,12 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
 import { headers } from '../constants/index';
-
+import axios from "axios";
 
 // api'lardan bayrak ve ülke corona versini alacak ve slice'a aktaracak asenkron thunk aksiyonu yaz
 export const getData = createAsyncThunk("countryData", async (isoCode) => {
     // api isteğinde kullanılacak parametreyi belirle
-    const params = { iso: isoCode };
+    const params = { q: isoCode };
 
     // api dan corona bilgilerini al
     const req1 = axios.get(`https://covid-19-statistics.p.rapidapi.com/reports`, { params, headers });
